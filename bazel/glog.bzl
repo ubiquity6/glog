@@ -94,7 +94,7 @@ sed -e 's/@ac_cv_cxx_using_operator@/1/g' \
     -e 's/@ac_cv_have_unistd_h@/1/g' \
     -e 's/@ac_cv_have_stdint_h@/1/g' \
     -e 's/@ac_cv_have_systypes_h@/1/g' \
-    -e 's/@ac_cv_have_libgflags_h@/1/g' \
+    -e 's/@ac_cv_have_libgflags@/1/g' \
     -e 's/@ac_cv_have_uint16_t@/1/g' \
     -e 's/@ac_cv_have___builtin_expect@/1/g' \
     -e 's/@ac_cv_have_.*@/0/g' \
