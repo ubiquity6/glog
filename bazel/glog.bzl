@@ -13,6 +13,11 @@ def glog_library(namespace='google', with_gflags=1):
     else:
         gendir = '$(GENDIR)'
 
+    native.config_setting(
+        name = "android",
+        values = {"cpu": "arm64-v8a"},
+    )
+    
     native.cc_library(
         name = 'glog',
         visibility = [ '//visibility:public' ],
@@ -77,8 +82,9 @@ def glog_library(namespace='google', with_gflags=1):
             # Use gflags to parse CLI arguments.
             '-DHAVE_LIB_GFLAGS',
         ] if with_gflags else []),
-        deps = [
-            '@com_github_gflags_gflags//:gflags',
+        deps = select({
+        ":android": ['@com_github_gflags_gflags//:gflags_nothreads'],
+        "//conditions:default": ['@com_github_gflags_gflags//:gflags'],
         ] if with_gflags else [],
     )
 
