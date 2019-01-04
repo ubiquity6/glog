@@ -15,7 +15,7 @@ def glog_library(namespace='google', with_gflags=1):
 
     native.config_setting(
         name = "android",
-        values = {"cpu": "arm64-v8a"},
+        values = {"crosstool_top": "@androidndk//:default_crosstool"},
     )
     
     native.cc_library(
